@@ -44,8 +44,18 @@ minetest.register_node("myladders:treehouse_ladder_"..mat, {
 })
 minetest.register_craft({
 	type = "shapeless",
-	output = "myladders:treehouse_ladder_"..mat.." 2",
+	output = "myladders:treehouse_ladder_wood 2",
 	recipe = {"default:ladder"}
+})
+minetest.register_craft({
+	type = "shapeless",
+	output = "myladders:treehouse_ladder_steel",
+	recipe = {"myladders:treehouse_ladder_wood","dye:grey"}
+})
+minetest.register_craft({
+	type = "shapeless",
+	output = "myladders:treehouse_ladder_black",
+	recipe = {"myladders:treehouse_ladder_wood","dye:black"}
 })
 
 --Heavy Duty
@@ -84,8 +94,18 @@ minetest.register_node("myladders:heavy_ladder_"..mat, {
 
 minetest.register_craft({
 	type = "shapeless",
-	output = "myladders:heavy_ladder_"..mat.." 1",
+	output = "myladders:heavy_ladder_wood 1",
 	recipe = {"default:ladder","default:ladder"}
+})
+minetest.register_craft({
+	type = "shapeless",
+	output = "myladders:heavy_ladder_steel",
+	recipe = {"myladders:heavy_ladder_wood","dye:grey"}
+})
+minetest.register_craft({
+	type = "shapeless",
+	output = "myladders:heavy_ladder_black",
+	recipe = {"myladders:heavy_ladder_wood","dye:black"}
 })
 
 end
