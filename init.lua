@@ -27,7 +27,8 @@ minetest.register_node("myladders:treehouse_ladder_"..mat, {
 	walkable = true,
 	climbable = true,
 	is_ground_content = false,
-	groups = {choppy=2,oddly_breakable_by_hand=3,flammable=2},
+	groups = {choppy=2,flammable=1},
+        legacy_wallmounted = true,
 	node_box = {
 		type = "fixed",
 		fixed = {
@@ -37,6 +38,12 @@ minetest.register_node("myladders:treehouse_ladder_"..mat, {
 			{-0.5, -0.4375, 0.3125, 0.5, -0.375, 0.375},
 			{-0.5, 0.0625, 0.3125, 0.5, 0.125, 0.375},
 			{-0.5, -0.1875, 0.3125, 0.5, -0.125, 0.375},
+		}
+	},
+	selection_box = {
+		type = "fixed",
+		fixed = {
+			{-0.375, -0.5, 0.375, 0.375, 0.5, 0.5},
 		}
 	},
         sounds = default.node_sound_wood_defaults(),
@@ -65,7 +72,7 @@ minetest.register_node("myladders:heavy_ladder_"..mat, {
 	paramtype = "light",
 	tiles = {
 		"myladders_wood_front3.png"..alpha,
-		"myladders_wood_front3.png"..alpha,
+		"myladders_wood_side2.png"..alpha,
 		"myladders_wood_side2.png"..alpha,
 		"myladders_wood_side2.png"..alpha,
 		"myladders_wood_front3.png"..alpha,
@@ -76,7 +83,8 @@ minetest.register_node("myladders:heavy_ladder_"..mat, {
 	walkable = true,
 	climbable = true,
 	is_ground_content = false,
-	groups = {choppy=2,oddly_breakable_by_hand=3,flammable=2},
+	groups = {choppy=2,flammable=1},
+        legacy_wallmounted = true,
 	node_box = {
 		type = "fixed",
 		fixed = {
@@ -86,6 +94,12 @@ minetest.register_node("myladders:heavy_ladder_"..mat, {
 			{-0.25, 0.125, 0.375, 0.25, 0.1875, 0.4375}, 
 			{-0.25, 0.375, 0.375, 0.25, 0.4375, 0.4375}, 
 			{-0.25, -0.375, 0.375, 0.25, -0.3125, 0.4375}, 
+		}
+	},
+	selection_box = {
+		type = "fixed",
+		fixed = {
+			{-0.375, -0.5, 0.3125, 0.375, 0.5, 0.5},
 		}
 	},
         sounds = default.node_sound_wood_defaults(),
@@ -136,13 +150,13 @@ minetest.register_node(":default:ladder", {
                         {-0.25,-0.4375,0.375,0.25,-0.3125,0.5},
                 },
         },
-        selection_box = {
-                type = "fixed",
-                fixed = {
-                {-0.375,-0.5,0.375,0.375,0.5,0.5},
-        },
-        },
-        groups = {choppy=2,oddly_breakable_by_hand=3,flammable=2},
+	selection_box = {
+		type = "fixed",
+		fixed = {
+			{-0.375, -0.5, 0.375, 0.375, 0.5, 0.5},
+		}
+	},
+        groups = {choppy=2,flammable=1},
         legacy_wallmounted = true,
         sounds = default.node_sound_wood_defaults(),
 })
