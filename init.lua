@@ -1,45 +1,53 @@
-local ladders_mat = {   --Material , Description, Alpha
-	{"wood", "Wood",""},
-	{"steel", "Steel","^myladders_alpha_grey.png"},
-	{"black", "Black","^myladders_alpha_black.png"},
+
+local ladders_mat = {
+{"_black", "Black", 		"^[colorize:black:240"},
+{"_blue", "Blue", 		"^[colorize:#0404B4:100"},
+{"_brown", "Brown", 		"^[colorize:#190B07:160"},
+{"_cyan", "Cyan",		"^[colorize:cyan:120"},
+{"_dark_green", "Dark Green",	"^[colorize:#071907:200"},
+{"_dark_grey", "Dark Grey",	"^[colorize:black:200"},
+{"_green", "Green", 		"^[colorize:green:160"},
+{"_grey", "Grey", 		"^[colorize:black:150"},
+{"_magenta", "Magenta",		"^[colorize:magenta:160"},
+{"_orange", "Orange",		"^[colorize:orange:220"},
+{"_pink", "Pink",		"^[colorize:#FE2E9A:200"},
+{"_red", "Red",			"^[colorize:#B40404:200"},
+{"_violet", "Violet",		"^[colorize:#2F0B3A:220"},
+{"_white", "White",		"^[colorize:white:200"},
+{"_yellow", "Yellow",		"^[colorize:yellow:200"},
+{"_wood", "Wood",		""},
 }
 
 for i in ipairs(ladders_mat) do
 	local mat = ladders_mat[i][1]
 	local desc = ladders_mat[i][2]
 	local alpha = ladders_mat[i][3]
+
+local ladders_type = {   --Material , Description
+	{"myladders:treehouse", "Treehouse", "myladders_tree.obj","myladders_treewood.png^[transformR90"},
+	{"myladders:heavy", "Heavy Duty", "myladders_heavy.obj","myladders_heavy.png"},
+	{":default:ladder", "Default", "myladders_default.obj","default_wood.png"},
+}
+
+for i in ipairs(ladders_type) do
+	local typ = ladders_type[i][1]
+	local desct = ladders_type[i][2]
+	local mesht = ladders_type[i][3]
+	local img = ladders_type[i][4]
 ----------------------------------------------------------------------------------------
 
-minetest.register_node("myladders:treehouse_ladder_"..mat, {
-	description = desc.."Treehouse ladder",
-	drawtype = "nodebox",
-	paramtype = "light",
-	tiles = {
-		"myladders_wood_top.png"..alpha,
-		"myladders_wood_top.png"..alpha,
-		"myladders_wood_side.png"..alpha,
-		"myladders_wood_side.png"..alpha,
-		"myladders_wood_back.png"..alpha,
-		"myladders_wood_front.png"..alpha,
-		},
+minetest.register_node(typ..mat, {
+	description = desc.." "..desct.." Ladder",
+	drawtype = "mesh",
+	mesh = mesht,
+        tiles = {img..alpha},
 	paramtype = "light",
 	paramtype2 = "facedir",
 	walkable = true,
 	climbable = true,
 	is_ground_content = false,
 	groups = {choppy=2,flammable=1},
-        legacy_wallmounted = true,
-	node_box = {
-		type = "fixed",
-		fixed = {
-			{-0.375, -0.5, 0.375, -0.25, 0.5, 0.5},
-			{0.25, -0.5, 0.375, 0.375, 0.5, 0.5},
-			{-0.5, 0.3125, 0.3125, 0.5, 0.375, 0.375},
-			{-0.5, -0.4375, 0.3125, 0.5, -0.375, 0.375},
-			{-0.5, 0.0625, 0.3125, 0.5, 0.125, 0.375},
-			{-0.5, -0.1875, 0.3125, 0.5, -0.125, 0.375},
-		}
-	},
+--        legacy_wallmounted = true,
 	selection_box = {
 		type = "fixed",
 		fixed = {
@@ -49,6 +57,11 @@ minetest.register_node("myladders:treehouse_ladder_"..mat, {
         sounds = default.node_sound_wood_defaults(),
 
 })
+end
+end
+
+
+--[[
 minetest.register_craft({
 	type = "shapeless",
 	output = "myladders:treehouse_ladder_wood 2",
@@ -68,16 +81,18 @@ minetest.register_craft({
 --Heavy Duty
 minetest.register_node("myladders:heavy_ladder_"..mat, {
 	description = desc.."Heavy Duty ladder",
-	drawtype = "nodebox",
+	drawtype = "mesh",
+	mesh = "myladders_heavy.obj",
+        tiles = {"default_wood.png"},
 	paramtype = "light",
-	tiles = {
-		"myladders_wood_front3.png"..alpha,
-		"myladders_wood_side2.png"..alpha,
-		"myladders_wood_side2.png"..alpha,
-		"myladders_wood_side2.png"..alpha,
-		"myladders_wood_front3.png"..alpha,
-		"myladders_wood_front3.png"..alpha,
-		},
+--	tiles = {
+--		"myladders_wood_front3.png"..alpha,
+--		"myladders_wood_side2.png"..alpha,
+--		"myladders_wood_side2.png"..alpha,
+--		"myladders_wood_side2.png"..alpha,
+--		"myladders_wood_front3.png"..alpha,
+--		"myladders_wood_front3.png"..alpha,
+--		},
 	paramtype = "light",
 	paramtype2 = "facedir",
 	walkable = true,
@@ -125,13 +140,9 @@ minetest.register_craft({
 end
 minetest.register_node(":default:ladder", {
         description = "Ladder",
-        drawtype = "nodebox",
-        tiles = {"default_ladder_top.png",
-                "default_ladder_bottom.png",
-                "default_ladder_right.png",
-                "default_ladder_left.png",
-                "default_ladder_back.png",
-                "default_ladder.png"},
+        drawtype = "mesh",
+	mesh = "myladders_default.obj",
+        tiles = {"default_ladder_mesh.png"},
         inventory_image = "default_ladder.png",
         wield_image = "default_ladder.png",
         paramtype = "light",
@@ -139,17 +150,7 @@ minetest.register_node(":default:ladder", {
 		  sunlight_propagates = true,
         walkable = true,
         climbable = true,
-        node_box = {
-                type = "fixed",
-                fixed = {
-                        {-0.375,-0.5,0.375,-0.25,0.5,0.5}, 
-                        {0.25,-0.5,0.375,0.375,0.5,0.5}, 
-                        {-0.25,0.4375,0.375,0.25,0.3125,0.5}, 
-                        {-0.25,0.0625,0.375,0.25,0.1875,0.5}, 
-                        {-0.25,-0.1875,0.375,0.25,-0.0625,0.5},
-                        {-0.25,-0.4375,0.375,0.25,-0.3125,0.5},
-                },
-        },
+
 	selection_box = {
 		type = "fixed",
 		fixed = {
