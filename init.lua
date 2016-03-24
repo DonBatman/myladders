@@ -1,21 +1,21 @@
 myladders = {}
 
 myladders.colors = {
-		{"black",		"Black", 		"^[colorize:black:240"},
+		{"black",		"Black", 		"^[colorize:#000000:240"},
 		{"blue",		"Blue", 		"^[colorize:#0404B4:100"},
 		{"brown",		"Brown", 		"^[colorize:#190B07:160"},
-		{"cyan",		"Cyan",			"^[colorize:cyan:120"},
-		{"dark_green",	"Dark Green",	"^[colorize:#071907:200"},
-		{"dark_grey",	"Dark Grey",	"^[colorize:black:200"},
-		{"green",		"Green", 		"^[colorize:green:160"},
-		{"grey",		"Grey", 		"^[colorize:black:150"},
-		{"magenta",		"Magenta",		"^[colorize:magenta:160"},
-		{"orange",		"Orange",		"^[colorize:orange:220"},
+		{"cyan",		"Cyan",			"^[colorize:#00ffff:120"},
+		{"darkgreen",	"Dark Green",	"^[colorize:#071907:200"},
+		{"darkgrey",	"Dark Grey",	"^[colorize:#000000:200"},
+		{"green",		"Green", 		"^[colorize:#00ff00:160"},
+		{"grey",		"Grey", 		"^[colorize:#000000:160"},
+		{"magenta",		"Magenta",		"^[colorize:#ff00ff:160"},
+		{"orange",		"Orange",		"^[colorize:#ff7700:220"},
 		{"pink",		"Pink",			"^[colorize:#FE2E9A:200"},
 		{"red",			"Red",			"^[colorize:#B40404:200"},
 		{"violet",		"Violet",		"^[colorize:#2F0B3A:220"},
-		{"white",		"White",		"^[colorize:white:200"},
-		{"yellow",		"Yellow",		"^[colorize:yellow:200"},
+		{"white",		"White",		"^[colorize:#ffffff:200"},
+		{"yellow",		"Yellow",		"^[colorize:#ffff00:200"},
 		}
 
 local paintables = {
@@ -47,11 +47,17 @@ minetest.register_node(typ.."_"..mat, {
 	tiles = {img..alpha},
 	paramtype = "light",
 	paramtype2 = "facedir",
-	walkable = true,
+	walkable = false,
 	climbable = true,
 	is_ground_content = false,
 	groups = {choppy=2,flammable=1},
 	selection_box = {
+		type = "fixed",
+		fixed = {
+			{-0.375, -0.5, 0.375, 0.375, 0.5, 0.5},
+		}
+	},
+	colition_box = {
 		type = "fixed",
 		fixed = {
 			{-0.375, -0.5, 0.375, 0.375, 0.5, 0.5},
