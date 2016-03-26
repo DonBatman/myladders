@@ -1,21 +1,21 @@
 myladders = {}
 
 myladders.colors = {
-		{"black",		"Black", 		"^[colorize:#000000:240",1},
-		{"blue",		"Blue", 		"^[colorize:#0404B4:100",1},
-		{"brown",		"Brown", 		"^[colorize:#190B07:160",0},
-		{"cyan",		"Cyan",			"^[colorize:#00ffff:120",1},
-		{"darkgreen",	"Dark Green",	"^[colorize:#071907:200",1},
-		{"darkgrey",	"Dark Grey",	"^[colorize:#000000:200",1},
-		{"green",		"Green", 		"^[colorize:#00ff00:160",1},
-		{"grey",		"Grey", 		"^[colorize:#000000:160",1},
-		{"magenta",		"Magenta",		"^[colorize:#ff00ff:160",1},
-		{"orange",		"Orange",		"^[colorize:#ff7700:220",1},
-		{"pink",		"Pink",			"^[colorize:#FE2E9A:200",1},
-		{"red",			"Red",			"^[colorize:#B40404:200",1},
-		{"violet",		"Violet",		"^[colorize:#2F0B3A:220",1},
-		{"white",		"White",		"^[colorize:#ffffff:200",1},
-		{"yellow",		"Yellow",		"^[colorize:#ffff00:200",1},
+		{"black",		"Black", 		"^[colorize:#000000:240"},
+		{"blue",		"Blue", 		"^[colorize:#0404B4:100"},
+		{"brown",		"Brown", 		"^[colorize:#190B07:160"},
+		{"cyan",		"Cyan",			"^[colorize:#00ffff:120"},
+		{"darkgreen",	"Dark Green",	"^[colorize:#071907:200"},
+		{"darkgrey",	"Dark Grey",	"^[colorize:#000000:200"},
+		{"green",		"Green", 		"^[colorize:#00ff00:160"},
+		{"grey",		"Grey", 		"^[colorize:#000000:160"},
+		{"magenta",		"Magenta",		"^[colorize:#ff00ff:160"},
+		{"orange",		"Orange",		"^[colorize:#ff7700:220"},
+		{"pink",		"Pink",			"^[colorize:#FE2E9A:200"},
+		{"red",			"Red",			"^[colorize:#B40404:200"},
+		{"violet",		"Violet",		"^[colorize:#2F0B3A:220"},
+		{"white",		"White",		"^[colorize:#ffffff:200"},
+		{"yellow",		"Yellow",		"^[colorize:#ffff00:200"},
 		}
 
 local paintables = {
@@ -26,7 +26,6 @@ for _, entry in ipairs(myladders.colors) do
 	local mat = entry[1]
 	local desc = entry[2]
 	local alpha = entry[3]
-	local nici = entry[4]
 
 local ladders_type = {   --Material , Description
 	{"myladders:treehouse", "Treehouse", "myladders_tree.obj","myladders_treewood.png^[transformR90","myladders_treehouse_inv.png"},
@@ -51,17 +50,16 @@ minetest.register_node(typ.."_"..mat, {
 	wield_image = inim..alpha,
 	paramtype = "light",
 	paramtype2 = "facedir",
-	walkable = false,
 	climbable = true,
 	is_ground_content = false,
-	groups = {choppy=2,flammable=1, not_in_creative_inventory = nici},
+	groups = {choppy=2,flammable=1, not_in_creative_inventory = 1},
 	selection_box = {
 		type = "fixed",
 		fixed = {
 			{-0.375, -0.5, 0.375, 0.375, 0.5, 0.5},
 		}
 	},
-	colition_box = {
+	collision_box = {
 		type = "fixed",
 		fixed = {
 			{-0.375, -0.5, 0.375, 0.375, 0.5, 0.5},
@@ -79,17 +77,16 @@ minetest.register_node(typ, {
 	wield_image = inim,
 	paramtype = "light",
 	paramtype2 = "facedir",
-	walkable = false,
 	climbable = true,
 	is_ground_content = false,
-	groups = {choppy=2,flammable=1, not_in_creative_inventory = nici},
+	groups = {choppy=2,flammable=1},
 	selection_box = {
 		type = "fixed",
 		fixed = {
 			{-0.375, -0.5, 0.375, 0.375, 0.5, 0.5},
 		}
 	},
-	colition_box = {
+	collision_box = {
 		type = "fixed",
 		fixed = {
 			{-0.375, -0.5, 0.375, 0.375, 0.5, 0.5},
