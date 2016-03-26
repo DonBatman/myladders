@@ -48,6 +48,35 @@ minetest.register_node(typ.."_"..mat, {
 	mesh = mesht,
 	tiles = {img..alpha},
 	inventory_image = inim..alpha,
+	wield_image = inim..alpha,
+	paramtype = "light",
+	paramtype2 = "facedir",
+	walkable = false,
+	climbable = true,
+	is_ground_content = false,
+	groups = {choppy=2,flammable=1, not_in_creative_inventory = nici},
+	selection_box = {
+		type = "fixed",
+		fixed = {
+			{-0.375, -0.5, 0.375, 0.375, 0.5, 0.5},
+		}
+	},
+	colition_box = {
+		type = "fixed",
+		fixed = {
+			{-0.375, -0.5, 0.375, 0.375, 0.5, 0.5},
+		}
+	},
+	sounds = default.node_sound_wood_defaults(),
+
+})
+minetest.register_node(typ, {
+	description = desct.." Ladder",
+	drawtype = "mesh",
+	mesh = mesht,
+	tiles = {img},
+	inventory_image = inim,
+	wield_image = inim,
 	paramtype = "light",
 	paramtype2 = "facedir",
 	walkable = false,
@@ -74,19 +103,19 @@ end
 
 minetest.register_craft({
 	type = "shapeless",
-	output = "myladders:ladder_brown 2",
+	output = "myladders:ladder 2",
 	recipe = {"default:ladder"}
 })
 
 minetest.register_craft({
 	type = "shapeless",
-	output = "myladders:treehouse_ladder_brown 2",
+	output = "myladders:treehouse_ladder 2",
 	recipe = {"default:ladder","default:stick"}
 })
 
 minetest.register_craft({
 	type = "shapeless",
-	output = "myladders:heavy_ladder_brown 1",
+	output = "myladders:heavy_ladder 1",
 	recipe = {"default:ladder","default:ladder"}
 })
 
