@@ -2,7 +2,7 @@ myladders = {}
 
 myladders.colors = {
 		{"black",		"Black", 		"^[colorize:#000000:240"},
-		{"blue",		"Blue", 		"^[colorize:#0404B4:100"},
+		{"blue",		"Blue", 		"^[colorize:#272dc8:200"},
 		{"brown",		"Brown", 		"^[colorize:#190B07:160"},
 		{"cyan",		"Cyan",			"^[colorize:#00ffff:120"},
 		{"darkgreen",	"Dark Green",	"^[colorize:#071907:200"},
@@ -100,20 +100,20 @@ end
 
 minetest.register_craft({
 	type = "shapeless",
-	output = "myladders:ladder 2",
-	recipe = {"default:ladder"}
+	output = "myladders:ladder",
+	recipe = {"default:ladder_wood"}
 })
 
 minetest.register_craft({
 	type = "shapeless",
-	output = "myladders:treehouse_ladder 2",
-	recipe = {"default:ladder","default:stick"}
+	output = "myladders:treehouse",
+	recipe = {"myladders:ladder","default:stick"}
 })
 
 minetest.register_craft({
 	type = "shapeless",
-	output = "myladders:heavy_ladder 1",
-	recipe = {"default:ladder","default:ladder"}
+	output = "myladders:heavy",
+	recipe = {"myladders:ladder","myladders:ladder"}
 })
 
 if minetest.get_modpath("mypaint") then
