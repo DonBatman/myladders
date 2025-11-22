@@ -97,7 +97,12 @@ minetest.register_node(typ.."_"..mat, {
 			sel,
 		}
 	},
-
+	collision_box = {
+		type = "fixed",
+		fixed = {
+			sel,
+		}
+	},
 	sounds = default.node_sound_wood_defaults(),
 
 })
@@ -119,7 +124,12 @@ minetest.register_node(typ, {
 			sel,
 		}
 	},
-
+	collision_box = {
+		type = "fixed",
+		fixed = {
+			sel,
+		}
+	},
 	sounds = default.node_sound_wood_defaults(),
 
 })
