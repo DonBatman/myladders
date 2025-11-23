@@ -1,3 +1,5 @@
+dofile(core.get_modpath("myladders").."/rope.lua")
+
 myladders = {}
 
 myladders.colors = {
