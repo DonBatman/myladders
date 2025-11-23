@@ -1,1 +1,0 @@
-Adds different style ladders that can be colored.
