@@ -81,7 +81,7 @@ for i in ipairs(ladders_type) do
 	local sel = ladders_type[i][6]
 ----------------------------------------------------------------------------------------
 
-minetest.register_node(typ.."_"..mat, {
+core.register_node(typ.."_"..mat, {
 	description = desc.." "..desct.." Ladder",
 	drawtype = "mesh",
 	mesh = mesht,
@@ -108,7 +108,7 @@ minetest.register_node(typ.."_"..mat, {
 	sounds = default.node_sound_wood_defaults(),
 
 })
-minetest.register_node(typ, {
+core.register_node(typ, {
 	description = desct.." Ladder",
 	drawtype = "mesh",
 	mesh = mesht,
@@ -138,25 +138,25 @@ minetest.register_node(typ, {
 end
 end
 
-minetest.register_craft({
+core.register_craft({
 	type = "shapeless",
 	output = "myladders:ladder",
 	recipe = {"default:ladder_wood"}
 })
 
-minetest.register_craft({
+core.register_craft({
 	type = "shapeless",
 	output = "myladders:treehouse",
 	recipe = {"myladders:ladder","default:stick"}
 })
 
-minetest.register_craft({
+core.register_craft({
 	type = "shapeless",
 	output = "myladders:heavy",
 	recipe = {"myladders:ladder","myladders:ladder"}
 })
 
-if minetest.get_modpath("mypaint") then
+if core.get_modpath("mypaint") then
 local colors = {}
 for _, entry in ipairs(myladders.colors) do
 	table.insert(colors, entry[1])
