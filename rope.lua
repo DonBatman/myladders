@@ -8,17 +8,16 @@ core.register_node("myladders:rope", {
 	climbable = true,
 	groups = {choppy=2,oddly_breakable_by_hand=3,flammable=2},
 	sounds = default.node_sound_wood_defaults(),
-
-	tiles = {
-		"wool_yellow.png",
-		"wool_yellow.png",
-		"wool_yellow.png",
-		"wool_yellow.png",
-		"wool_yellow.png",
-		"wool_yellow.png"
+	drawtype = "mesh",
+	mesh = "myladders_rope.obj",
+	tiles = {"wool_yellow.png",},
+	selection_box = {
+		type = "fixed",
+		fixed = {
+			{-0.0625, -0.5, -0.0625, 0.0625, 0.5, 0.0625},
+		}
 	},
-	drawtype = "nodebox",
-	node_box = {
+	collision_box = {
 		type = "fixed",
 		fixed = {
 			{-0.0625, -0.5, -0.0625, 0.0625, 0.5, 0.0625},
@@ -41,7 +40,8 @@ core.register_craft({
 
 core.register_node("myladders:rope_for_box", {
     description = "Rope for Ropebox",
-    drawtype = "nodebox",
+    drawtype = "mesh",
+    mesh = "myladders_rope.obj",
     paramtype = "light",
     sunlight_propagates = true,
 	tiles = {
@@ -56,7 +56,13 @@ core.register_node("myladders:rope_for_box", {
     climbable = true,
     walkable = false,
     diggable = false,
-	node_box = {
+	selection_box = {
+		type = "fixed",
+		fixed = {
+			{-0.0625, -0.5, -0.0625, 0.0625, 0.5, 0.0625},
+		}
+	},
+	collision_box = {
 		type = "fixed",
 		fixed = {
 			{-0.0625, -0.5, -0.0625, 0.0625, 0.5, 0.0625},
@@ -72,7 +78,8 @@ core.register_node("myladders:rope_for_box", {
 
 core.register_node("myladders:ropebox", {
     description = "Ropebox Block",
-    drawtype = "nodebox",
+    drawtype = "mesh",
+    mesh = "myladders_ropebox.obj",
     sunlight_propagates = true,
     tiles = {"default_coal_block.png",
              "default_coal_block.png",
@@ -83,15 +90,10 @@ core.register_node("myladders:ropebox", {
     paramtype = "light",
     paramtype2 = "facedir",
     groups = {choppy=3},
-	node_box = {
+	selection_box = {
 		type = "fixed",
 		fixed = {
-			{-2/16, -2/16, -4/16, 2/16, 2/16, 4/16}, 
-			{-2/16, -4/16, -2/16, 2/16, 4/16, 2/16}, 
-			{-2/16, -3/16, -3/16, 2/16, 3/16, 3/16}, 
-			{-3/16, -2/16, -2/16, -2/16, 8/16, 2/16},
-			{2/16, -2/16, -2/16, 3/16, 8/16, 2/16},
-			{-1/16, -8/16, -1/16, 1/16, -4/16, 1/16},    
+			{-0.25, -0.2, -0.375, 0.25, 0.5, 0.375},   
 		},
 	},
     after_destruct = function(pos,oldnode)

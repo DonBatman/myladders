@@ -70,6 +70,8 @@ local ladders_type = {   --Material , Description
 	{"myladders:heavy", "Heavy Duty", "myladders_heavy.obj","myladders_heavy.png","myladders_heavy_inv.png",{-0.375, -0.5, 0.375, 0.375, 0.5, 0.5}},
 	{"myladders:ladder", "Default", "myladders_default.obj","default_wood.png","myladders_default_inv.png",{-0.375, -0.5, 0.375, 0.375, 0.5, 0.5}},
 	{"myladders:ladder_center", "Default Center", "myladders_default2.obj","default_wood.png","myladders_default_inv.png",{-0.375, -0.5, -0.05, 0.375, 0.5, 0.05}},
+	{"myladders:wall_ladder", "Wall Ladder", "myladders_wall_ladder.obj","default_coal_block.png","myladders_wall_ladder_inv.png",{-0.375, -0.5, 0.175, 0.375, 0.5, 0.5}},
+	{"myladders:aluminum_ladder", "Aluminum Ladder", "myladders_aluminum_ladder.obj", "default_clay.png", "myladders_aluminum_ladder_inv.png",{-0.375, -0.5, 0.375, 0.375, 0.5, 0.5}},
 }
 
 for i in ipairs(ladders_type) do
