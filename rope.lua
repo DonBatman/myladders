@@ -26,7 +26,7 @@ core.register_node("myladders:rope", {
 })
 
 core.register_craft({
-	output = 'myladders:rope 3',
+	output = 'myladders:rope 10',
 	recipe = {
 		{"", "wool:yellow", ""},
 		{"", "wool:yellow", ""},
@@ -106,21 +106,21 @@ core.register_node("myladders:ropebox", {
 
 core.register_abm({
 	nodenames = {"myladders:ropebox"},
-	interval = 1,
+	interval = 0.5,
 	chance = 1,
 	action = function(pos, node)
-	if core.get_node({x=pos.x,y=pos.y-1,z=pos.z}).name ~= 'air'  then return end
-	        core.add_node({x=pos.x,y=pos.y-1,z=pos.z}, {name="myladders:rope_for_box"})
+	if core.get_node({x=pos.x,y=pos.y-1,z=pos.z}).name ~= "air" then return end
+		core.set_node({x=pos.x,y=pos.y-1,z=pos.z}, {name="myladders:rope_for_box"})
 	end
 })
 
 core.register_abm({
 	nodenames = {"myladders:rope_for_box"},
-	interval = 1,
+	interval = 0.5,
 	chance = 1,
 	action = function(pos, node)
-	if core.get_node({x=pos.x,y=pos.y-1,z=pos.z}).name ~= 'air'  then return end
-	        core.add_node({x=pos.x,y=pos.y-1,z=pos.z}, {name="myladders:rope_for_box"})
+	if core.get_node({x=pos.x,y=pos.y-1,z=pos.z}).name ~= "air" then return end
+		core.set_node({x=pos.x,y=pos.y-1,z=pos.z}, {name="myladders:rope_for_box"})
 	end
 })
 
