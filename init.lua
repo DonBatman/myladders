@@ -57,7 +57,7 @@ if core.get_modpath("mydye") then
 end
 
 local paintables = {
-	"myladders:treehouse", "myladders:heavy", "myladders:ladder", "myladders:ladder_center","myladders:wall_ladder"
+	"myladders:treehouse", "myladders:heavy", "myladders:ladder", "myladders:ladder_center"
 	}
 
 for _, entry in ipairs(myladders.colors) do
